@@ -1,6 +1,5 @@
 package io.github.debarshri.example;
 
-import io.github.debarshri.Bootstrap;
 import io.github.debarshri.Html;
 import spark.Request;
 import spark.Response;
@@ -17,7 +16,7 @@ public class BootstrapExample {
             @Override
             public Object handle(Request request, Response response) throws Exception {
 
-                return Bootstrap.html(
+                return html(
                         navbar(
                                 brand("Yolothingy!", "#"),
                                 nav("Test1", "#test1"),
@@ -29,17 +28,17 @@ public class BootstrapExample {
                         ),
                         container(
                                 jumbotron(Html.h1("Yolo###")),
-                                div(3,3,"test this offset")
+                                div(3, 3, "test this offset")
 
                         ),
                         container(
                                 table_bordered(
-                                        tr(th("Col1"),th("Col3"),th("Col3")),
-                                        tr(td("data"),td("data"),td("data")),
-                                        tr(td("data"),td("data"),td("data")),
-                                        tr(td("data"),td("data"),td("data")),
-                                        tr(td("data"),td("data"),td("data")),
-                                        tr(td("data"),td("data"),td("data"))
+                                        tr(th("Col1"), th("Col3"), th("Col3")),
+                                        tr(td("data"), td("data"), td("data")),
+                                        tr(td("data"), td("data"), td("data")),
+                                        tr(td("data"), td("data"), td("data")),
+                                        tr(td("data"), td("data"), td("data")),
+                                        tr(td("data"), td("data"), td("data"))
                                 )
                         )
                 );

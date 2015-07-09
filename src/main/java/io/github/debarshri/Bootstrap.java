@@ -10,34 +10,48 @@ import static io.github.debarshri.Utils.merge;
 
 public class Bootstrap {
 
+    private static final String div_with_col_12 = "<div class=\"col-lg-12\">%s</div>";
+    private static final String div_with_variable_len = "<div class=\"col-lg-%d\">%s</div>";
+    private static final String div_with_class_name = "<div class=\"%s\">%s</div>";
+    private static final String div_with_var_len_offset = "<div class=\"col-lg-%d col-lg-offset-%d\" >%s</div>";
+    private static final String div_container = "<div class=\"container\">%s</div>";
+    private static String         meta = "<meta charset=\"utf-8\">\n";
+
+
+    private Bootstrap()
+    {
+        //ignore
+    }
+
     public static String div(String... data) {
-        return String.format("<div class=\"col-lg-12\">%s</div>", merge(data));
+
+        return String.format(div_with_col_12, merge(data));
     }
 
     public static String div(String data) {
-        return String.format("<div class=\"col-lg-12\">%s</div>", data);
+        return String.format(div_with_col_12, data);
     }
 
     public static String div(int bootstrapSize, String... data) {
-        return String.format("<div class=\"col-lg-%d\">%s</div>", bootstrapSize, merge(data));
+        return String.format(div_with_variable_len, bootstrapSize, merge(data));
     }
 
     public static String div(String bootstrapClassName, int bootstrapSize, String... data) {
-        return String.format("<div class=\"%s\">%s</div>", bootstrapClassName, merge(data));
+        return String.format(div_with_class_name, bootstrapClassName, merge(data));
     }
 
     public static String div(int bootstrapSize, int offset, String... data) {
-        return String.format("<div class=\"col-lg-%d col-lg-offset-%d\" >%s</div>", bootstrapSize, offset, merge(data));
+        return String.format(div_with_var_len_offset, bootstrapSize, offset, merge(data));
     }
 
 
     public static String container(String... datas) {
-        return String.format("<div class=\"container\">%s</div>", merge(datas));
+        return String.format(div_container, merge(datas));
     }
 
     public static String html(String... datas) {
         return Html.html(
-                head("<meta charset=\"utf-8\">\n",
+                head(meta,
                         title("Artelius"),
                         "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n",
                         "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n",
