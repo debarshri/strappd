@@ -1,6 +1,8 @@
 package io.github.debarshri;
 
-import io.github.debarshri.datatype.Tab;
+import io.github.debarshri.element.CSS;
+import io.github.debarshri.element.Tab;
+import io.github.debarshri.element.Title;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,7 +74,7 @@ public class Bootstrap {
     private static final String google_fonts = "<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>";
     private static final String head = " <thead><tr>%s</tr></thead>\n";
     private static final String th = "<th>%s</th>";
-
+    private static final String sortableJs = "http://www.kryogenix.org/code/browser/sorttable/sorttable.js";
 
     private Bootstrap() {
         //ignore
@@ -106,7 +108,7 @@ public class Bootstrap {
     public static String html(String... datas) {
         return Html.html(
                 head(meta,
-                        title("Artelius"),
+                        title("---"),
                         "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n",
                         "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n",
                         link(bootstrap_href),
@@ -116,6 +118,27 @@ public class Bootstrap {
                         scriptWithSource("https://bootswatch.com/bower_components/bootstrap/dist/js/bootstrap.min.js"),
                         link(jquery_smoothness),
                         scriptWithSource("http://www.kryogenix.org/code/browser/sorttable/sorttable.js"),
+                        scriptWithSource("https://cdnjs.cloudflare.com/ajax/libs/tablefilter/2.5.0/tablefilter.js"),
+                        scriptWithSource("//code.jquery.com/jquery-1.10.2.js"),
+                        scriptWithSource(jquery_ui)),
+                merge(datas));
+    }
+
+    public static String html(CSS css, 
+                              Title title,
+                              String... datas) {
+        return Html.html(
+                head(meta,
+                        title(title.toString()),
+                        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n",
+                        "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n",
+                        link(bootstrap_href),
+                        google_fonts,
+                        scriptWithSource(jquery),
+                        css(css.toString()),
+                        scriptWithSource("https://bootswatch.com/bower_components/bootstrap/dist/js/bootstrap.min.js"),
+                        link(jquery_smoothness),
+                        scriptWithSource(sortableJs),
                         scriptWithSource("https://cdnjs.cloudflare.com/ajax/libs/tablefilter/2.5.0/tablefilter.js"),
                         scriptWithSource("//code.jquery.com/jquery-1.10.2.js"),
                         scriptWithSource(jquery_ui)),

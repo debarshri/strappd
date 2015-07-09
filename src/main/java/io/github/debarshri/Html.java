@@ -1,8 +1,28 @@
 package io.github.debarshri;
 
+import com.google.common.collect.Lists;
+import io.github.debarshri.element.HtmlElement;
+
+import java.util.List;
+
 import static io.github.debarshri.Utils.merge;
 
 public class Html {
+    private List<HtmlElement> elementList;
+
+    public Html(List<HtmlElement> elementList) {
+        this.elementList = elementList;
+    }
+
+    public Html(HtmlElement elementList) {
+        this.elementList = Lists.newArrayList(elementList);
+    }
+
+    public String toElement()
+    {
+        return html(merge(elementList));
+    }
+
     public static String h1(String data) {
         return String.format("<h1>%s</h1>", data);
     }

@@ -1,6 +1,6 @@
-package io.github.debarshri.datatype;
+package io.github.debarshri.element;
 
-public class Tab {
+public class Tab implements HtmlElement {
     private final String navTab;
     private final String tabContent;
 
@@ -15,5 +15,10 @@ public class Tab {
 
     public String getTabContent() {
         return tabContent;
+    }
+
+    @Override
+    public String toElement() {
+        return null;
     }
 }

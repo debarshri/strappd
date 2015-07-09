@@ -1,6 +1,11 @@
 package io.github.debarshri;
 
-import io.github.debarshri.datatype.Elemental;
+import com.google.common.collect.Collections2;
+import io.github.debarshri.element.ElementTransformation;
+import io.github.debarshri.element.HtmlElement;
+
+import java.util.Collection;
+import java.util.List;
 
 public class Utils {
 
@@ -12,11 +17,8 @@ public class Utils {
         return content.trim();
     }
 
-    public static String merge(Elemental[] datas) {
-        String content = "";
-        for (Elemental data : datas) {
-            content = content + data.getFormat();
-        }
-        return content.trim();
+    public static String merge(List<HtmlElement> datas) {
+        Collection<String> transform = Collections2.transform(datas, new ElementTransformation());
+        return Utils.merge(transform.toArray(new String[transform.size()]));
     }
 }

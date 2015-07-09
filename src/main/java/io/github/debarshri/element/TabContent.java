@@ -1,6 +1,6 @@
-package io.github.debarshri.datatype;
+package io.github.debarshri.element;
 
-public class TabContent extends Elemental {
+public class TabContent implements HtmlElement {
     private String format;
 
     public TabContent(String format) {
@@ -10,5 +10,10 @@ public class TabContent extends Elemental {
 
     public String getFormat() {
         return format;
+    }
+
+    @Override
+    public String toElement() {
+        return null;
     }
 }
