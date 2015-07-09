@@ -13,7 +13,7 @@ public class HTMLExample {
     public static void init() {
         Spark.get("/html", new Route() {
             @Override
-            public Object handle(Request request, Response response) throws Exception {
+            public Object handle(Request request, Response response) {
 
                 return body(
                         h1("Hello, world."),
