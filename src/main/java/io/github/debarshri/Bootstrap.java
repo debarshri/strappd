@@ -15,7 +15,7 @@ public class Bootstrap {
     private static final String div_with_class_name = "<div class=\"%s\">%s</div>";
     private static final String div_with_var_len_offset = "<div class=\"col-lg-%d col-lg-offset-%d\" >%s</div>";
     private static final String div_container = "<div class=\"container\">%s</div>";
-    private static String         meta = "<meta charset=\"utf-8\">\n";
+    private static String meta = "<meta charset=\"utf-8\">\n";
 
 
     private Bootstrap()
